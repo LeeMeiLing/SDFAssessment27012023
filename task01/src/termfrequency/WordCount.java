@@ -20,7 +20,6 @@ public class WordCount {
 
     public void addCount(){
         this.count++;
-        //System.out.println(this.word + " count = " + this.count); //debug
     }
 
     @Override
