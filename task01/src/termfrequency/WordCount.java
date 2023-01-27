@@ -10,23 +10,17 @@ public class WordCount {
         this.count = 1;
     }
 
-    
-
     public String getWord() {
         return word;
     }
-
-
 
     public Integer getCount() {
         return count;
     }
 
-
-
     public void addCount(){
         this.count++;
-        System.out.println(this.word + " count = " + this.count); //debug
+        //System.out.println(this.word + " count = " + this.count); //debug
     }
 
     @Override

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +21,10 @@ public class Main {
         String fileName = null;
         String input;
         Map<String, WordCount> countWord = new HashMap<>();
-        //Map<String, Double> termFreq = new HashMap<>();
+        Map<String, Double> topTermFreq = new LinkedHashMap<>();
         List<WordCount> wordCountList = new LinkedList<>();
         int totalCount = 0;
-        int debugCount = 0; // debug
+        // int debugCount = 0; // debug
         WordCount temp;
 
         if (args.length == 0){
@@ -48,7 +49,7 @@ public class Main {
             //using try-with-resource
             try(BufferedReader br = new BufferedReader(new FileReader(file))){
                 
-                while (((input = br.readLine()) != null) && debugCount < 10) {  // remove debug count later
+                while ((input = br.readLine()) != null) {  // remove debug count later
 
                     if(input.isBlank()){
                         continue; // skip line if blank
@@ -77,7 +78,7 @@ public class Main {
                         }
                     }
 
-                    debugCount++;
+                    // debugCount++;
 
                 }// end of while loop
 
@@ -90,12 +91,18 @@ public class Main {
                 }
 
                 wordCountList.sort(Comparator.comparing(WordCount::getCount).reversed());
-                System.out.println(wordCountList); // debug
-            }
+                //System.out.println(wordCountList); // debug
 
+                for (int i =1; i <= 10; i++){
+
+                    Double termFreq = (double) wordCountList.get(i).getCount()/totalCount;
+                    topTermFreq.put(wordCountList.get(i).getWord(), termFreq);
+                    System.out.println("Top " + i + " word is " + wordCountList.get(i).getWord() + ", term frequency = " + termFreq );
+
+                }
+
+            }//end of try-with-resource
 
         }
-
-
     }
 }
