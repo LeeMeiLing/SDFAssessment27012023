@@ -39,7 +39,7 @@ public class Main {
 
             // do the following if file exist
 
-            //using try-with-resource
+            //using try-with-resource, BufferedReader auto close, no need to br.close()
             try(BufferedReader br = new BufferedReader(new FileReader(file))){
                 
                 while ((input = br.readLine()) != null) { 
@@ -72,7 +72,7 @@ public class Main {
 
                 }
 
-                System.out.println("total count = " + totalCount); // debug
+                System.out.println("total word count = " + totalCount);
 
                 for (String key: countWord.keySet()){
                     wordCountList.add(countWord.get(key));
