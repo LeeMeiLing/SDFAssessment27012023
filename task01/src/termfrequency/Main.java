@@ -80,11 +80,11 @@ public class Main {
 
                 wordCountList.sort(Comparator.comparing(WordCount::getCount).reversed());
 
-                for (int i =1; i <= 10; i++){
+                for (int i =0; i < 10; i++){
 
                     Double termFreq = (double) wordCountList.get(i).getCount()/totalCount;
                     topTermFreq.put(wordCountList.get(i).getWord(), termFreq);
-                    System.out.println("Top " + i + " word is [" + wordCountList.get(i).getWord() + "] , term frequency = " + termFreq );
+                    System.out.println("Top " + (i+1) + " word is [" + wordCountList.get(i).getWord() + "] , term frequency = " + termFreq );
 
                 }
 
