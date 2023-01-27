@@ -37,31 +37,31 @@ public class Main{
 
                 case "+" :{
 
-                    System.out.println("performing addition");
                     cal = new Calculator(input[0], input[2]);
                     $last = cal.add();
                     break;
+
                 }
                 case "-" :{
 
-                    System.out.println("performing subtraction");
                     cal = new Calculator(input[0], input[2]);
                     $last = cal.subtract();
                     break;
+
                 }
                 case "*" :{
 
-                    System.out.println("performing multiplication");
                     cal = new Calculator(input[0], input[2]);
                     $last = cal.multiply();
                     break;
+
                 }
                 case "/" :{
 
-                    System.out.println("performing division");
                     cal = new Calculator(input[0], input[2]);
                     $last = cal.divide();
                     break;
+                    
                 }
             }
 
